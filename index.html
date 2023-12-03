@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>To Do List</title>
+        <link rel="stylesheet" href="Demo.css">
+    </head>
+    <body>
+        <div id="myDIV" class="header">
+        <H1>MY TO DO LIST</H1>
+        <input id="text" id="myInput">
+        <button id="add" onclick="addList()" class="addBtn">Add</button>
+        </div>
+        <div>
+            <h3>List Items</h3>
+        </div>
+        <ul id="list">
+        <li>SQL<button onclick="delet(event)" class="space-after-li">Delete</button></li>
+        <li>JavaScript<button onclick="delet(event)" class="space-after-li">Delete</button></li>
+    </ul>
+    </body>
+    <script>
+        var lt= document.getElementById("list")
+        var dlt= document.getElementById("Delete")
+        function addList()
+        {
+            var text= document.getElementById("text")
+            if(text.value==null||text.value==undefined|| text.value=="")
+            {
+                console.log("Empty")
+            }
+            else{
+            var list= document.createElement("li")
+            list.innerHTML=text.value + "<button onclick=\"delet(event)\" class=\"space-after-li\">Delete</button>"
+            lt.append(list)
+            text.value=" "
+            }
+        }
+        function delet(event)
+        {
+            event.target.parentElement.remove()
+        }
+    </script>
+</html>
